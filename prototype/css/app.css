@@ -1,0 +1,355 @@
+:root {
+	--default-transition: cubic-bezier(0,.68,.43,.97);
+	--nav-option-transition-time: 350ms;
+}
+
+html, body {
+	font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+	position: relative;
+}
+
+body:not(.fully-loaded) {
+	overflow: hidden;
+	margin: 0;
+	height: 100%;
+}
+
+h1,h2,h3,h4,h5,h6, .heading-text {
+	font-family: 'Lovelo-Black', sans-serif;
+}
+
+/*div.photos-scroll-outer {
+	position: relative;
+}
+
+div.photos-scroll {
+	width: 100%;
+	height: 100vh;
+
+	margin: 0;
+	padding: 0;
+
+	position: absolute;
+	top: 0px;
+	left: 0px;
+
+	transition: top 175ms ease;
+}
+
+div.photos-scroll img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+div.photos-scroll-outer:hover div.photos-scroll {
+	top: 50px;
+}*/ 
+
+@media only screen and (max-width: 600px) {
+	div.name-heading-box {
+		width: 75vw;
+	}
+}
+
+@media only screen and (min-width: 601px) and (max-width: 800px) {
+	div.name-heading-box {
+		width: 60vw;
+	}
+}
+
+@media only screen and (min-width: 801px) {
+	div.name-heading-box {
+		width: 50vw;
+	}
+}
+
+div.loading-overlay {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+
+	background: #000;
+	color: #fff;
+
+	width: 100vw;
+	height: 100vh;
+
+	opacity: 1;
+
+	transition: opacity 200ms ease;
+
+	z-index: 3;
+}
+
+div.loading-overlay.fading-out {
+	opacity: 0;
+}
+
+div.loading-overlay.faded {
+	z-index: -1;
+	pointer-events: none;
+}
+
+div.content-container {
+	z-index: 1;
+
+	transform: scale(0.963);
+	opacity: 0;
+
+	overflow: visible;
+
+	transition: transform 1s var(--default-transition), opacity 1s var(--default-transition);
+}
+
+div.content-container div.entry-shadow {
+	box-shadow: 25px 25px 50px 0 #000 inset, -25px -25px 50px 0 #000 inset;
+
+	position: absolute;
+	top: 0px;
+	left: 0px;
+
+	width: 100%;
+	height: 100%;
+
+	transition: box-shadow 1s var(--default-transition);
+}
+
+main.main-page {
+	padding: 0px;
+	margin: 0px;
+
+	width: 100vw;
+	height: 100vh;
+
+	background-image: url(../img/IMG_0932_edited2.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #000;
+}
+
+div.loading-box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	background: #000;
+
+	width: 50vw;
+	height: 275px;
+}
+
+@keyframes loadinganim {
+	0% {transform: scale(0);}
+	50% {transform: scale(1);}
+	100% {transform: scale(0);}
+}
+
+div.loading-box::after {
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	z-index: -1 !important;
+	content: '';
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	transform: scale(0);
+}
+
+/* remove class anim to stop white grow shrink */
+div.loading-box.anim::after {
+	animation: loadinganim 1.5s var(--default-transition) infinite;
+}
+
+div.loading-box div.loading-head {
+	text-align: center;
+	line-height: 275px;
+
+	padding: 0px;
+	margin: 0px;
+
+	font-size: 6vw;
+}
+
+div.loading-box div.loading-head {
+	mix-blend-mode: difference;
+	transform: rotateX(0.0001deg);
+	user-select: none;
+}
+
+div.loading-box div.loading-head span {
+	display: inline-block !important;
+	transform: translateY(0px);
+	position: relative;
+	opacity: 1;
+	transition: opacity 225ms ease, transform 225ms ease;
+}
+
+div.loading-box div.loading-head span.disappear {
+	transform: translateY(-30px);
+	opacity: 0;
+}
+
+body.loaded div.loading-overlay {
+	z-index: -1;
+}
+
+body.loaded div.content-container {
+	transform: scale(1);
+	opacity: 1;
+	border-radius: 0;
+
+	box-shadow: none;
+}
+
+body.loaded div.content-container div.entry-shadow {
+	box-shadow: 13px 13px 25px 0 rgba(0, 0, 0, 0) inset, -13px -13px 25px 0 rgba(0, 0, 0, 0) inset !important;
+}
+
+div.entry-shadow.hide {
+	z-index: -1;
+	pointer-events: none;
+}
+
+div.name-heading-box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+
+	background: rgba(0, 0, 0, 0.67);
+	color: #fff;
+
+	text-align: center;
+
+	border-radius: 8px;
+
+	padding: 10px;
+}
+
+div.name-heading-box h1 {
+	font-size: 80px;
+
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+
+div.name-heading-box aside.subtitle {
+	font-size: 25px;
+}
+
+nav.nav-options {
+	width: 40vw;
+	position: relative;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-row-gap: 0px;
+	grid-column-gap: 10px;
+
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+nav.nav-options div.nav-options-item {
+	border-radius: 5px;
+
+	cursor: pointer;
+	user-select: none;
+
+	overflow: hidden;
+	-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+}
+/*
+nav.nav-options div.nav-options-item div.thumb.writing {
+
+}*/
+
+/*nav.nav-options div.nav-options-item div.thumb.photography img {
+	top: calc(50% + 35px);
+	transform: translateY(-50%);
+}*/
+
+nav.nav-options div.nav-options-item div.thumb {
+	/*background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;*/
+	background-color: #000;
+
+	overflow: hidden;
+	-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+
+	height: 100px;
+}
+
+nav.nav-options div.nav-options-item div.thumb img {
+	/*width: 100%;*/
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	/*height: auto;*/
+	position: relative;
+	left: 0;
+
+	transform: scale(1);
+	transition: transform var(--nav-option-transition-time) var(--default-transition);
+	/*transform: translate(-50%, -50%);*/
+
+	pointer-events: none;
+}
+
+nav.nav-options div.nav-options-item:hover div.thumb img {
+	transform: scale(1.035);
+	transform-origin: center center;
+}
+
+nav.nav-options div.nav-options-item div.text {
+	text-align: left;
+	font-family: 'Lovelo-Black', sans-serif;
+
+	padding: 8px;
+
+	background: #fff;
+	/*color: #000;*/
+
+	position: relative;
+}
+
+nav.nav-options div.nav-options-item div.text span {
+	mix-blend-mode: difference;
+	transform: rotateX(0.0001deg);
+	z-index: 1;
+}
+
+nav.nav-options div.nav-options-item div.text::before {
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	background: #000;
+
+	/*z-index: -1;*/
+
+	transform: scaleX(0);
+	transform-origin: 0 0;
+
+	transition: transform var(--nav-option-transition-time) var(--default-transition);
+}
+
+nav.nav-options div.nav-options-item:hover div.text::before {
+	transform: scaleX(1);
+}
