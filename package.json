@@ -1,0 +1,19 @@
+{
+  "name": "expos-culminating",
+  "version": "1.0.0",
+  "description": "Culminating project for SPCS Expository Writing (2019)",
+  "main": "index.js",
+  "scripts": {
+    "test": "./start.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zane-programs/expos-culminating.git"
+  },
+  "author": "Zane St. John for Gretchen Kellough and Joel Simon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zane-programs/expos-culminating/issues"
+  },
+  "homepage": "https://github.com/zane-programs/expos-culminating#readme"
+}
