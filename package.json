@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/zane-programs/expos-culminating/issues"
   },
-  "homepage": "https://github.com/zane-programs/expos-culminating#readme"
+  "homepage": "https://github.com/zane-programs/expos-culminating#readme",
+  "dependencies": {
+    "exif": "^0.6.0",
+    "express": "^4.17.1",
+    "get-exif": "^1.0.3",
+    "iconv-lite": "^0.5.0",
+    "modify-exif": "0.0.1"
+  }
 }

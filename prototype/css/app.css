@@ -269,7 +269,87 @@ nav.nav-options div.nav-options-item {
 
 	overflow: hidden;
 	-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+
+	position: relative;
+
+	transform: scale(1);
+	opacity: 1;
+
+	transition: transform var(--nav-option-transition-time) var(--default-transition), opacity var(--nav-option-transition-time) var(--default-transition);
 }
+
+nav.nav-options div.nav-options-item:active {
+	transform: scale(0.97);
+	opacity: 0.85;
+}
+
+nav.nav-options div.nav-options-item::before {
+	content: '';
+
+	background: #fff;
+
+	width: 40px;
+	height: 40px;
+
+	border-radius: 50%;
+
+	right: 10px;
+
+	transition: background var(--nav-option-transition-time) var(--default-transition), transform var(--nav-option-transition-time) var(--default-transition), opacity var(--nav-option-transition-time) var(--default-transition);
+}
+
+nav.nav-options div.nav-options-item::after {
+	content: 'arrow_forward';
+	
+	/* font stuff copied from Google Font CDN */
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	/*font-size: 24px;*/
+	/*line-height: 1;*/
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	-webkit-font-feature-settings: 'liga';
+	-webkit-font-smoothing: antialiased;
+
+	font-size: 30px;
+	line-height: 30px;
+	text-align: center;
+
+	color: #000;
+
+	right: 15px;
+
+	transition: color var(--nav-option-transition-time) var(--default-transition), transform var(--nav-option-transition-time) var(--default-transition), opacity var(--nav-option-transition-time) var(--default-transition);
+}
+
+nav.nav-options div.nav-options-item::before, nav.nav-options div.nav-options-item::after {
+	position: absolute;
+	top: calc(50% - 15px);
+	transform: translateY(-50%) scale(1);
+
+	z-index: 3;
+
+	opacity: 0.87;
+}
+
+nav.nav-options div.nav-options-item:hover::before, nav.nav-options div.nav-options-item:hover::after {
+	transform: translate(2px, -50%) scale(1.1);
+	opacity: 1;
+}
+
+nav.nav-options div.nav-options-item:hover::before {
+	background: #000;
+}
+
+nav.nav-options div.nav-options-item:hover::after {
+	color: #fff;
+}
+
 /*
 nav.nav-options div.nav-options-item div.thumb.writing {
 

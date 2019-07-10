@@ -26,7 +26,7 @@
 			spansToChange[i].classList.add("disappear");
 			await sleep(30);
 		}
-		await sleep(75);
+		await sleep(65);
 		document.body.classList.add("loaded");
 
 		await sleep(1000);
