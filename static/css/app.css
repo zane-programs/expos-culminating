@@ -438,7 +438,7 @@ nav.nav-options div.nav-options-item div.thumb {
 	overflow: hidden;
 	-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
 
-	height: 100px;
+	height: 150px;
 }
 
 nav.nav-options div.nav-options-item div.thumb img {

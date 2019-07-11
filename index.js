@@ -23,4 +23,4 @@ app.all('*', (req, res) => {
 	res.status(404).send({ status: res.statusCode, message: "Not Found" });
 });
 
-const listener = app.listen(process.env.EXPOSPORT || 3030, () => console.log(`Server listening on ${listener.address().port}`));
+const listener = app.listen(process.env.EXPOSPORT || 3031, () => console.log(`Server listening on ${listener.address().port}`));
