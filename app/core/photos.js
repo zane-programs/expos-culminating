@@ -1,29 +1,16 @@
-const fs = require('fs');
-// const getExif = require('get-exif');
-// const { getExif } = require('./exif');
+const axios = require('axios');
 const util = require('./util');
-// const modifyExif = require('modify-exif');
+const credentials = require('./credentials');
 
-/* GOT RID OF THIS, NOT HOSTING LOCALLY */
-// const getPhotos = async appDir => {
-// 	let photoDir = await fs.promises.readdir(`${appDir}/photos`);
-// 	let newPhotoList = [];
+const imgurAlbum = process.env.IMGURALBUM || "WhuKEpM";
 
-// 	for (let i = 0; i < photoDir.length; i++) {
-// 		let photoFile = await fs.promises.readFile(`${appDir}/photos/${photoDir[i]}`);
-// 		try {
-// 			let exifInfo = await getExif(photoFile);
-// 			newPhotoList.push({ name: photoDir[i], exif: exifInfo });
-// 		} catch (e) {
-// 			throw new Error(e);
-// 		}
-// 	}
-
-// 	return newPhotoList;
-// };
-
-const getPhotos = async () => {
-
+// this is gonna turn into some spaghetti code soon, so fix! It was nice async/await but it DIDN'T WORK!
+const getPhotos = () => {
+	return new Promise((resolve, reject) => {
+		axios.get(`https://api.imgur.com/3/album/${imgurAlbum}/images`, { headers: { Authorization: `Client-ID ${credentials.imgurClientId}` } })
+			.then(response => resolve(response.data))
+			.catch(err => reject(err.response.data))
+	});
 };
 
 module.exports = {

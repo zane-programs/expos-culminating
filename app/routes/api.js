@@ -11,9 +11,11 @@ let routerToReturn = appDir => {
 
 	// Get photos route
 	router.get('/photos', async (req, res) => {
+		let photoInfo = await photos.getPhotos();
+
+		// res.setHeader('Cache-Control', 'no-cache'); // for debug purposes, REMOVE LATER!!!
 		res.setHeader('Content-Type', 'application/json; charset=utf-8');
-		let photoInfo = await photos.getPhotos(appDir);
-		let photoDescriptions = photoInfo.map(k => {})
+		res.status(200).send(photoInfo);
 	});
 
 	return router;
