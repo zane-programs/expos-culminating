@@ -475,9 +475,12 @@ nav.nav-options div.nav-options-item div.text {
 }
 
 nav.nav-options div.nav-options-item div.text span {
+	color: #fff;
 	mix-blend-mode: difference;
 	transform: rotateX(0.0001deg);
 	z-index: 1;
+
+	text-decoration: none;
 }
 
 nav.nav-options div.nav-options-item div.text::before {
