@@ -19,7 +19,7 @@
   "homepage": "https://github.com/zane-programs/expos-culminating#readme",
   "dependencies": {
     "apicache": "^1.5.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "exif": "^0.6.0",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
